@@ -1,6 +1,5 @@
 create_table :categories do |t|
-  t.integer  :keyword, null: false, default: ""
-  t.integer  :name,    null: false, default: ""
+  t.integer  :name, null: false
 end
 
 create_table :category_classifies do |t|
@@ -9,8 +8,8 @@ create_table :category_classifies do |t|
 end
 
 create_table :classifies do |t|
-  t.string   :keyword, null: false, default: ""
   t.string   :name,    null: false, default: ""
+  t.string   :name_en, null: false, default: ""
 end
 
 create_table :sites do |t|
