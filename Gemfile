@@ -35,10 +35,16 @@ gem 'jbuilder', '~> 2.5'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  # gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '~> 2.13'
-  gem 'selenium-webdriver'
+  gem 'factory_girl_rails'
+  gem 'faker'
+  gem 'gimei'
+  gem 'pry-byebug'
+  gem 'pry-rails'
+  gem 'rack_session_access'
+  gem 'rails-controller-testing'
+  gem 'rspec-rails'
 end
 
 group :development do
@@ -50,8 +56,30 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
+group :test do
+  gem 'autodoc'
+  gem 'capybara'
+  gem 'danger'
+  gem 'database_cleaner'
+  gem 'launchy'
+  gem 'poltergeist'
+  gem 'rspec-retry'
+  gem 'shoulda-matchers'
+  gem 'webmock'
+  # github comment
+  gem 'saddler'
+  gem 'saddler-reporter-github'
+end
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'ridgepole'
 gem 'slim-rails'
+gem 'dotenv-rails'
+gem 'enum_help'
+gem 'font-awesome-rails'
+gem 'gretel'
+gem 'kaminari'
+gem 'active_decorator'
+gem 'config'
