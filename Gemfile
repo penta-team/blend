@@ -83,3 +83,6 @@ gem 'gretel'
 gem 'kaminari'
 gem 'active_decorator'
 gem 'config'
+
+# crawling用のgem
+gem 'mechanize'
