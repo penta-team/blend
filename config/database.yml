@@ -14,9 +14,8 @@ default: &default
   encoding: utf8mb4
   pool: 5
   username: root
-  password:
+  password: <%= ENV['BLEND_DATABASE_PASSWORD'] %>
   socket: /tmp/mysql.sock
-  host: db
 
 development:
   <<: *default
