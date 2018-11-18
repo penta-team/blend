@@ -3,7 +3,7 @@ create_table :categories do |t|
 end
 
 create_table :category_classifies do |t|
-  t.integer  :site_id,     null: false
+  t.integer  :category_id,     null: false
   t.integer  :classify_id, null: false
 end
 
