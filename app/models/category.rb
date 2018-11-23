@@ -9,6 +9,8 @@
 class Category < ApplicationRecord
   validates :name, presence: true
 
+  has_many :sites
+
   enum name: {
     car_share: 0,        # カーシェアリング
     bike: 1,             # 自転車
