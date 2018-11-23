@@ -9,6 +9,20 @@
   </head>
 
   <body>
+
+    <header>
+    <ul class="header-menus">
+    <li>
+      <%= link_to("atlta", "/") %>
+    </li>
+    <% @categories.each do |category| %>
+      <li>
+        <%= link_to(category.name, sharings_path(category: category.name)) %>
+        
+      </li>
+    <% end %>
+    </ul>
+    </header>
     <%= yield %>
   </body>
 </html>
