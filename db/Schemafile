@@ -21,6 +21,7 @@ end
 
 create_table :sharings do |t|
   t.integer  :site_id, null: false
+  t.string   :name,    null: false
 end
 
 create_table :sharing_elements do |t|

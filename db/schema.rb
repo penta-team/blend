@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 0) do
 
   create_table "sharings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.integer "site_id", null: false
+    t.string "name", null: false
   end
 
   create_table "sites", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
