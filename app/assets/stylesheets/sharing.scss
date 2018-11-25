@@ -231,15 +231,15 @@
   .form {
     max-width: 600px;
     margin: 0 auto;
-    background-color: white;
-    box-shadow: 0 2px 6px #c1ced7;
+    /* background-color: white;
+    box-shadow: 0 2px 6px #c1ced7; */
   }
   
   .form-heading {
     font-weight: 300;
     margin: 60px 0 20px;
-    font-size: 48px;
-    color: #bcc8d4;
+    /* font-size: 48px;
+    color: #bcc8d4; */
   }
   
   .form-body {
@@ -262,7 +262,7 @@
   
   .form textarea {
     width: 100%;
-    min-height: 110px;
+    min-height: 50px;
     font-size: 16px;
     letter-spacing: 2px;
   }
