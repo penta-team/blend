@@ -2,7 +2,17 @@ class Sharing < ApplicationRecord
   belongs_to :site
 
   has_many :sharing_elements, dependent: :destroy
-  accepts_nested_attributes_for :sharing_elements, allow_destroy: true
 
   validates :name, presence: true
+
+  def create_sharing_element(classify, value, dup = false)
+    if dup
+      sharing_element = sharing_elements.find_or_initialize_by classify: classify, value: value
+      sharing_element.save!
+    else
+      sharing_element = sharing_elements.find_or_initialize_by classify: classify
+      sharing_element.value = value
+      sharing_element.save!
+    end
+  end
 end
