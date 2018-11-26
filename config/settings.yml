@@ -19,3 +19,17 @@ site:
         paginate_link: goNext
         name: span#stationNm
         address: span#adr1
+  akippa:
+    site_name: akippa
+    root_url: https://www.akippa.com/
+    crawling_url: https://www.akippa.com/kanto/
+    category: parking
+    selector:
+      first_select: body > div.container > main > div.container > main > section.spot-region > div:nth-child(n) > ul.spot-list > li:nth-child(n) > a
+      second_select: div#spot-parking-list > a
+      station_name: body > div.parking-detail-title > div.container > main > section.box-container > div.parking-title-section > div.title > h2
+      price: body > div.parking-detail-title > div.container > main > section.box-container > div.parking-title-section > div.info > div.detail > p.parking-price > .parking-fee
+      address: div.col2-container > div.col2-container-left > main > section:nth-child(5) > div.box.parking-detail-info > div.address > p:nth-child(2)
+      car_type: body > div.col2-container > div.col2-container-left > main > section:nth-child(3) > div.box.parking-detail-cartype > ul.parking-detail-list > li:nth-child(n) > p:not(.disabled):first-of-type
+      image: body > div.col2-container > div.col2-container-left > main > section:nth-child(1) > div.box.parking-detail-photo > div.photo-body > div:first-child > img
+
