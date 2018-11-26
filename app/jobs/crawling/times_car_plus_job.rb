@@ -1,7 +1,5 @@
 module Crawling
   class TimesCarPlusJob < BaseJob
-    CRAWLING_WAIT_TIME = 1
-
     def perform
       settings = Settings.site.times_car_plus
 

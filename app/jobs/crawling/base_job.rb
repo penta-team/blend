@@ -1,5 +1,7 @@
 module Crawling
   class BaseJob < ::ApplicationJob
+    CRAWLING_WAIT_TIME = 1
+    
     def find_or_create_site(site_name, root_url, crawling_url, category)
       category = Category.find_by(name: category)
       category.sites.find_or_create_by(site_name: site_name) do |site|
