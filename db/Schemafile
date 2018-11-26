@@ -27,5 +27,5 @@ end
 create_table :sharing_elements do |t|
   t.integer  :sharing_id,  null: false
   t.integer  :classify_id, null: false
-  t.string   :value,       null: false, default: ""
+  t.text     :value,       null: false
 end
