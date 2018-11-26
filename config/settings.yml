@@ -32,4 +32,17 @@ site:
       address: div.col2-container > div.col2-container-left > main > section:nth-child(5) > div.box.parking-detail-info > div.address > p:nth-child(2)
       car_type: body > div.col2-container > div.col2-container-left > main > section:nth-child(3) > div.box.parking-detail-cartype > ul.parking-detail-list > li:nth-child(n) > p:not(.disabled):first-of-type
       image: body > div.col2-container > div.col2-container-left > main > section:nth-child(1) > div.box.parking-detail-photo > div.photo-body > div:first-child > img
-
+  nokisaki_parking:
+    site_name: 軒先パーキング
+    root_url: https://parking.nokisaki.com/
+    crawling_url: https://parking.nokisaki.com/
+    category: parking
+    selector:
+      first_select: div#wrapper > div.container.main.one.pages_display > div.main > div.lower > div:nth-child(17) > div.recommend.prefectures > div.content > ul > li:nth-child(2) > a:nth-child(n)
+      second_select: div#wrapper > div.container.main.one.prefectures_display > div.main > div.recommend.spots > div.content > a:nth-child(n)
+      third_select: div#list_item.searchResultItem > a:nth-child(n)
+      price: div.list_box > div.list_box_right > p.list_box_yen > strong
+      station_name: div#spaceWrapper > div.sectionTitle > span:not([style])
+      address: div#spaceWrapper > div.sectionContent > div.titleArea > p.address
+      car_type: div#spaceWrapper > div.sectionContent > div.leftColumn > table:first-of-type > tbody > tr:last-child > td
+      image: div#photoSlide > ul.slides > li:first-child > img
