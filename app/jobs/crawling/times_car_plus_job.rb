@@ -59,11 +59,5 @@ module Crawling
         end
       end
     end
-
-    def get_page(url, agent = Mechanize.new)
-      page = agent.get url
-      sleep CRAWLING_WAIT_TIME
-      page
-    end
   end
 end
