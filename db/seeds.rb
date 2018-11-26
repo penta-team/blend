@@ -21,7 +21,7 @@ classify_seeds = [
   { name_en: :station,             name: "ステーション名" },
   { name_en: :car_type,            name: "車両タイプ" },
   { name_en: :car_model,           name: "車種" },
-  { name_en: :ridabble_number,     name: "乗車可能人数" },
+  { name_en: :ridable_number,      name: "乗車可能人数" },
   { name_en: :image,               name: "画像" },
   { name_en: :seating_capacity,    name: "収容人数" },
   { name_en: :business_hours,      name: "営業時間" },
@@ -61,7 +61,7 @@ end
 # category_classifyの追加
 # ------------------------------------------------------------------------
 category_classify_seeds = [
-  { category: :car_share,       classifies: %i[price address station car_type car_model ridabble_number image] },
+  { category: :car_share,       classifies: %i[price address station car_type car_model ridable_number image] },
   { category: :bike,            classifies: %i[price address station] },
   { category: :parking,         classifies: %i[address car_type price image station] },
   { category: :conference_room, classifies: %i[address price seating_capacity image] },
