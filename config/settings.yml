@@ -1,0 +1,21 @@
+site:
+  times_car_plus:
+    site_name: タイムズ カー プラス
+    root_url: https://plus.timescar.jp/
+    crawling_url: https://plus.timescar.jp/car/
+    category: car_share
+    selector:
+      car_list:
+        basic_class: div#d_page > div.contents > section.main > div.main-wide > div.car > div.aboutcar > div.carlist > dl:nth-child(n).clearfix
+        premium_class: div#d_page > div.contents > section.main > div.main-wide > div.car > div.aboutcar.hide > div.carlist > dl:nth-child(n).clearfix
+      price:
+        basic_class: "#cont01 > h2 > span.place"
+        premium_class: "#cont02 > h2 > span.place"
+      car_name: dd.mb5 > p.name > span:not(.ic_ev)
+      ridable_number: dd.mb5 > ul > li
+      image: dt > a.alpha > img
+      station_link: div.car_bt_area > p.station-btn > a.alpha
+      station:
+        paginate_link: goNext
+        name: span#stationNm
+        address: span#adr1
