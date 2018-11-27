@@ -86,6 +86,8 @@ gem 'kaminari'
 gem 'active_decorator'
 gem 'config'
 gem 'whenever', require: false
+gem 'slack-notifier'
+gem 'exception_notification', github: 'smartinez87/exception_notification'
 
 # crawling用のgem
 gem 'mechanize'

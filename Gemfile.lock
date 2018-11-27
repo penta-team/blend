@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/smartinez87/exception_notification.git
+  revision: 735628ec27e16d9d6c903e2f4818de5a220f87be
+  specs:
+    exception_notification (4.3.0)
+      actionmailer (>= 4.0, < 6)
+      activesupport (>= 4.0, < 6)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -356,6 +364,7 @@ GEM
       faraday (~> 0.8, < 1.0)
     shoulda-matchers (3.1.2)
       activesupport (>= 4.0.0)
+    slack-notifier (2.3.2)
     slim (4.0.1)
       temple (>= 0.7.6, < 0.9)
       tilt (>= 2.0.6, < 2.1)
@@ -428,6 +437,7 @@ DEPENDENCIES
   database_cleaner
   dotenv-rails
   enum_help
+  exception_notification!
   factory_bot_rails
   faker
   font-awesome-rails
@@ -453,6 +463,7 @@ DEPENDENCIES
   saddler-reporter-github
   sass-rails (~> 5.0)
   shoulda-matchers
+  slack-notifier
   slim-rails
   spring
   spring-watcher-listen (~> 2.0.0)
