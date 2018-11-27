@@ -1,6 +1,6 @@
 module Crawling
   class BaseJob < ::ApplicationJob
-    CRAWLING_WAIT_TIME = 1
+    CRAWLING_WAIT_TIME = 60
 
     def find_or_create_site(site_name, root_url, crawling_url, category)
       category = Category.find_by(name: category)
