@@ -21,5 +21,9 @@ module Crawling
       sleep CRAWLING_WAIT_TIME
       page
     end
+
+    def notify_exception(exception)
+      ExceptionNotifier.notify_exception(exception, env: Rails.env)
+    end
   end
 end

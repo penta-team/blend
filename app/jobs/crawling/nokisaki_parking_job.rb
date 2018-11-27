@@ -49,6 +49,7 @@ module Crawling
             rescue => e
               Rails.logger.debug e
               Rails.logger.debug e.backtrace.join('\n')
+              notify_exception e
               next
             end
           end
