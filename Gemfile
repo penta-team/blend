@@ -85,6 +85,7 @@ gem 'gretel'
 gem 'kaminari'
 gem 'active_decorator'
 gem 'config'
+gem 'whenever', require: false
 
 # crawling用のgem
 gem 'mechanize'
