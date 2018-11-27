@@ -49,6 +49,7 @@ test:
 #
 production:
   <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
   database: <%= ENV['BLEND_DATABASE_NAME'] %>
   username: <%= ENV['BLEND_DATABASE_USERNAME'] %>
   password: <%= ENV['BLEND_DATABASE_PASSWORD'] %>
