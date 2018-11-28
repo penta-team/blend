@@ -3,7 +3,7 @@ create_table :categories do |t|
 end
 
 create_table :category_classifies do |t|
-  t.integer  :category_id,     null: false
+  t.integer  :category_id, null: false
   t.integer  :classify_id, null: false
 end
 
@@ -13,17 +13,19 @@ create_table :classifies do |t|
 end
 
 create_table :sites do |t|
-  t.integer  :category_id, null: false
-  t.string   :root_url,    null: false, default: ""
-  t.string   :site_name,   null: false, default: ""
+  t.integer  :category_id,  null: false
+  t.string   :root_url,     null: false, default: ""
+  t.string   :crawling_url, null: false, default: ""
+  t.string   :site_name,    null: false, default: ""
 end
 
 create_table :sharings do |t|
   t.integer  :site_id, null: false
+  t.string   :name,    null: false
 end
 
 create_table :sharing_elements do |t|
   t.integer  :sharing_id,  null: false
   t.integer  :classify_id, null: false
-  t.string   :value,       null: false, default: ""
+  t.text     :value,       null: false
 end

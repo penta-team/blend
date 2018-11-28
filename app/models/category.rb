@@ -9,6 +9,10 @@
 class Category < ApplicationRecord
   validates :name, presence: true
 
+  has_many :sites
+  has_many :category_classifies
+  has_many :classifies, through: :category_classifies
+
   enum name: {
     car_share: 0,        # カーシェアリング
     bike: 1,             # 自転車
@@ -22,7 +26,9 @@ class Category < ApplicationRecord
     taxi: 9,             # 個人タクシー
     guest_house: 10,     # 民泊
     clothes: 11,         # 服
-    brand: 12,           # ブランド小物
-    storage: 13          # 物置
+    storage: 12,         # 物置
+    bag: 13,             # バッグ
+    watch: 14,           # 腕時計
+    furniture: 15        # 家具
   }
 end

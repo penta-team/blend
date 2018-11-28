@@ -49,6 +49,8 @@ test:
 #
 production:
   <<: *default
-  database: blend_production
-  username: blend
+  url: <%= ENV['DATABASE_URL'] %>
+  reconnect: true
+  database: <%= ENV['BLEND_DATABASE_NAME'] %>
+  username: <%= ENV['BLEND_DATABASE_USERNAME'] %>
   password: <%= ENV['BLEND_DATABASE_PASSWORD'] %>
