@@ -12,11 +12,26 @@ p <div class="sharing-top-main backimage-#{ @category.name }">
       p test3
     tr
      td
-      textarea
+      = form_tag(sharings_path,:method => 'get') do
+      = text_field_tag :search
      td
-      textarea
+      = form_tag(sharings_path,:method => 'get') do
+      = text_field_tag :search
      td
-      textarea
+      = form_tag(sharings_path,:method => 'get') do
+      = text_field_tag :search
+  = submit_tag 'Search', :name => nil
   input[type="submit" value="検索"]
+
+＃＃＃デザイン追加分＃＃＃
+.main
+  .container
+    - "SQL検索結果が格納された配列".each do |"各検索結果"|
+    .search-category-item
+      .item-image-left
+        img src="検索された製品の画像パス" /
+      .item-text-right
+        = "検索結果のテキスト情報"
+
     
 p </div>
