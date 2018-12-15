@@ -1,3 +1,63 @@
+/* レイアウト追加分（開始） ================================================================ */
+/*  メインレイアウト ================================ */
+.main {
+  position: absolute;
+  top: 64px;
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+  background-color: #f5f8fa;
+ }
+ 
+ /* 検索結果を表示する枠の設定 ================================ */
+ .container {
+  max-width: 700px;
+  margin: 60px auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  clear: both;
+ }
+ 
+ /*  各検索結果の枠に関するレイアウト ================================ */
+ .search-category-item {
+  padding: 50px 30px;
+  background-color: white;
+  overflow: hidden;
+  box-shadow: 0 2px 6px #c1ced7;
+  display: table;
+  width: 100%;
+ }
+ 
+ 
+ /*  各検索結果の表示画像に関するレイアウト ====================== */
+ .item-image-left img {
+  width: 100px;
+  height: 100px;
+  border-radius: 40%;
+  box-shadow: 0 2px 6px #c1ced7;
+  object-fit: cover;
+ }
+ 
+ 
+ /*  製品画像の位置調整 ================================ */
+ .item-image-left {
+  float: left;
+  width: 10%;
+ }
+ 
+ /*  製品情報（テキスト）の位置調整 =========================== */
+ .item-text-right {
+  width: 90%;
+  padding-left: 25px;
+  text-align: left;
+  display: table-cell;
+  vertical-align: middle;
+ }
+
+
+/* レイアウト追加分（終了） ================================================================ */
+
+
 /* reset ================================ */
 * {
     box-sizing: border-box;
@@ -131,12 +191,67 @@
     background-repeat: no-repeat;
     background-position: center 50%;
     background-size: cover;
-    /* background-image: url("/Astronaut-EVA.jpg"); */
+  }
+
+  .sharing-top-main.backimage-car_share {
+    background-image: url("/car.jpg");
+  }
+
+  .sharing-top-main.backimage-bike {
+    background-image: url("/bike.jpg");
+  }
+
+  .sharing-top-main.backimage-parking {
+    background-image: url("/parking.jpg");
+  }
+
+  .sharing-top-main.backimage-conference_room {
+    background-image: url("/conference_room.jpg");
+  }
+
+  .sharing-top-main.backimage-food_waste {
+    background-image: url("/food_waste.jpg");
+  }
+
+  .sharing-top-main.backimage-coworking {
+    background-image: url("/coworking.jpg");
+  }
+
+  .sharing-top-main.backimage-pet {
+    background-image: url("/pet.jpg");
+  }
+
+  .sharing-top-main.backimage-child_care {
+    background-image: url("/child_care.jpg");
+  }
+
+  .sharing-top-main.backimage-ride_sahre {
+    background-image: url("/ride_sahre.jpg");
+  }
+
+  .sharing-top-main.backimage-taxi {
+    background-image: url("/taxi.jpg");
+  }
+
+  .sharing-top-main.backimage-guest_house {
+    background-image: url("/guest_house.jpg");
+  }
+
+  .sharing-top-main.backimage-clothes {
+    background-image: url("/clothes.jpg");
+  }
+
+  .sharing-top-main.backimage-brand {
+    background-image: url("/brand.jpg");
+  }
+
+  .sharing-top-main.backimage-storage {
+    background-image: url("/storage.jpg");
   }
   
   .sharing-top-message {
     position: relative;
-    color: black;
+    color: white;
   }
   
   .top-main h2 {
@@ -176,15 +291,15 @@
   .form {
     max-width: 600px;
     margin: 0 auto;
-    background-color: white;
-    box-shadow: 0 2px 6px #c1ced7;
+    /* background-color: white;
+    box-shadow: 0 2px 6px #c1ced7; */
   }
   
   .form-heading {
     font-weight: 300;
     margin: 60px 0 20px;
-    font-size: 48px;
-    color: #bcc8d4;
+    /* font-size: 48px;
+    color: #bcc8d4; */
   }
   
   .form-body {
@@ -207,7 +322,7 @@
   
   .form textarea {
     width: 100%;
-    min-height: 110px;
+    min-height: 50px;
     font-size: 16px;
     letter-spacing: 2px;
   }
