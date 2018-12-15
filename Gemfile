@@ -91,3 +91,5 @@ gem 'exception_notification', github: 'smartinez87/exception_notification'
 
 # crawling用のgem
 gem 'mechanize'
+
+gem 'dotenv-rails'
