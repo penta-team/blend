@@ -14,16 +14,22 @@ ActiveRecord::Schema.define(version: 0) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.integer "name", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "category_classifies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.integer "category_id", null: false
     t.integer "classify_id", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "classifies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name", default: "", null: false
     t.string "name_en", default: "", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "delayed_jobs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -44,12 +50,16 @@ ActiveRecord::Schema.define(version: 0) do
     t.integer "sharing_id", null: false
     t.integer "classify_id", null: false
     t.text "value", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "sharings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.integer "site_id", null: false
     t.string "name", null: false
     t.integer "state", default: 0, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "sites", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -57,6 +67,8 @@ ActiveRecord::Schema.define(version: 0) do
     t.string "root_url", default: "", null: false
     t.string "crawling_url", default: "", null: false
     t.string "site_name", default: "", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

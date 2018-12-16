@@ -1,15 +1,21 @@
 create_table :categories, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
   t.integer  :name, null: false
+
+  t.timestamps null: true
 end
 
 create_table :category_classifies, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
   t.integer  :category_id, null: false
   t.integer  :classify_id, null: false
+
+  t.timestamps null: true
 end
 
 create_table :classifies, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
   t.string   :name,    null: false, default: ""
   t.string   :name_en, null: false, default: ""
+
+  t.timestamps null: true
 end
 
 create_table :sites, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
@@ -17,18 +23,24 @@ create_table :sites, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=ut
   t.string   :root_url,     null: false, default: ""
   t.string   :crawling_url, null: false, default: ""
   t.string   :site_name,    null: false, default: ""
+
+  t.timestamps null: true
 end
 
 create_table :sharings, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
   t.integer  :site_id, null: false
   t.string   :name,    null: false
   t.integer  :state,   null: false, default: 0
+
+  t.timestamps null: true
 end
 
 create_table :sharing_elements, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
   t.integer  :sharing_id,  null: false
   t.integer  :classify_id, null: false
   t.text     :value,       null: false
+
+  t.timestamps null: true
 end
 
 create_table :delayed_jobs, force: true, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
