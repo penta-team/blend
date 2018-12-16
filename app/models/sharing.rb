@@ -5,6 +5,11 @@ class Sharing < ApplicationRecord
 
   validates :name, presence: true
 
+  enum state: {
+    closed: 0,
+    opened: 1
+  }
+
   def create_sharing_element(classify, value, dup = false)
     if dup
       sharing_element = sharing_elements.find_or_initialize_by classify: classify, value: value

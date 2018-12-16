@@ -93,3 +93,6 @@ gem 'exception_notification', github: 'smartinez87/exception_notification'
 gem 'mechanize'
 
 gem 'dotenv-rails'
+gem 'delayed_job'
+gem 'delayed_job_active_record'
+gem 'daemons'

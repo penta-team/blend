@@ -26,6 +26,20 @@ ActiveRecord::Schema.define(version: 0) do
     t.string "name_en", default: "", null: false
   end
 
+  create_table "delayed_jobs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.integer "priority", default: 0, null: false
+    t.integer "attempts", default: 0, null: false
+    t.text "handler", null: false
+    t.text "last_error"
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.string "locked_by"
+    t.string "queue"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "sharing_elements", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.integer "sharing_id", null: false
     t.integer "classify_id", null: false
@@ -35,6 +49,7 @@ ActiveRecord::Schema.define(version: 0) do
   create_table "sharings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.integer "site_id", null: false
     t.string "name", null: false
+    t.integer "state", default: 0, null: false
   end
 
   create_table "sites", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
