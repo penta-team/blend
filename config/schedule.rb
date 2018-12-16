@@ -19,6 +19,6 @@
 
 # Learn more: http://github.com/javan/whenever
 
-every :hour do
+every '30 * * * *' do
   rake 'crawling:run'
 end
