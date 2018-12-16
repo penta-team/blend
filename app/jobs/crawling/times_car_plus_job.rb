@@ -1,7 +1,8 @@
 module Crawling
   class TimesCarPlusJob < BaseJob
     def perform
-      settings = Settings.site.times_car_plus
+      settings     = Settings.site.times_car_plus
+      current_time = Time.zone.now
 
       @site = find_or_create_site(
         settings.site_name,
@@ -20,6 +21,8 @@ module Crawling
       # プレミアムクラスの場合
       premium_class_price = page.at(settings.selector.price.premium_class).text
       create_sharing settings, page, settings.selector.car_list.premium_class, premium_class_price
+
+      @site.sharings.where.not(updated_at: current_time).update_all state: :closed
     end
 
     def create_sharing(settings, page, item_selector, price)
@@ -32,8 +35,11 @@ module Crawling
             ridable_number = item.at(settings.selector.ridable_number)&.text
             station_link_href = item.at(settings.selector.station_link)&.get_attribute('href')
 
-            sharing = @site.sharings.find_or_initialize_by name: car_name
+            sharing            = @site.sharings.find_or_initialize_by name: car_name
+            sharing.state      = :opened
+            sharing.updated_at = current_time
             sharing.save!
+
             sharing.create_sharing_element image_classify, settings.crawling_url + image
             sharing.create_sharing_element ridable_number_classify, ridable_number.slice(/\d+/)
             sharing.create_sharing_element price_classify, price

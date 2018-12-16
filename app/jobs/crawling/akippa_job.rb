@@ -1,7 +1,8 @@
 module Crawling
   class AkippaJob < BaseJob
     def perform
-      settings = Settings.site.akippa
+      settings     = Settings.site.akippa
+      current_time = Time.zone.now
 
       @site = find_or_create_site(
         settings.site_name,
@@ -28,7 +29,9 @@ module Crawling
               address      = detail_page.at(settings.selector.address)&.text
               image        = detail_page.at(settings.selector.image)&.get_attribute('src')
 
-              sharing = @site.sharings.find_or_initialize_by name: station_name
+              sharing            = @site.sharings.find_or_initialize_by name: station_name
+              sharing.state      = :opened
+              sharing.updated_at = current_time
               sharing.save!
 
               sharing.create_sharing_element price_classify, price
@@ -47,6 +50,8 @@ module Crawling
           end
         end
       end
+
+      @site.sharings.where.not(updated_at: current_time).update_all state: :closed
     end
   end
 end
