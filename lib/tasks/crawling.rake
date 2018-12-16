@@ -1,5 +1,5 @@
 namespace :crawling do
-  JOB_METHOD = "perform_now"
+  JOB_METHOD = "perform_later"
 
   def logger
     Rails.logger
