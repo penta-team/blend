@@ -28,7 +28,7 @@ module Crawling
               address      = detail_page.at(settings.selector.address)&.text
               image        = detail_page.at(settings.selector.image)&.get_attribute('src')
 
-              sharing = @site.sharings.new name: station_name
+              sharing = @site.sharings.find_or_initialize_by name: station_name
               sharing.save!
 
               sharing.create_sharing_element price_classify, price

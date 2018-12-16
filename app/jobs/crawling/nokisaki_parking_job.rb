@@ -35,7 +35,7 @@ module Crawling
                 # TODO: car_typeがうまく取得できない
                 car_types    = detail_page.at(settings.selector.car_type)&.text&.split('/') || []
 
-                sharing = @site.sharings.new name: station_name
+                sharing = @site.sharings.find_or_initialize_by name: station_name
                 sharing.save!
 
                 sharing.create_sharing_element price_classify, price

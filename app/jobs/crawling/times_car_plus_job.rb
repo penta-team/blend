@@ -32,7 +32,7 @@ module Crawling
             ridable_number = item.at(settings.selector.ridable_number)&.text
             station_link_href = item.at(settings.selector.station_link)&.get_attribute('href')
 
-            sharing = @site.sharings.new name: car_name
+            sharing = @site.sharings.find_or_initialize_by name: car_name
             sharing.save!
             sharing.create_sharing_element image_classify, settings.crawling_url + image
             sharing.create_sharing_element ridable_number_classify, ridable_number.slice(/\d+/)
