@@ -58,4 +58,15 @@ site:
       wrapper: div#coordinateArea > div.slideOuter > div.inner > ul.coord-slide li
       image: img
       type: div.coord_caption_wrap > a > p
-
+  mechakari:
+    site_name: MECHAKARI
+    root_url: https://mechakari.com/
+    crawling_url: https://mechakari.com/web/list/coord?brandId=CC010
+    category: clothes
+    selector:
+      bland_list: div#footer.footer > nav.footer-brand > div.footer-brand__inner > div.footer-brand__content > ul.footer-brand__list > li:nth-child(n) > a.footer-brand__item-trigger
+      product: main > .page-collection__content > .section-collection > ul.section-collection__list > li.section-collection__item
+      image: a.section-collection__item-trigger > div.section-collection__image > div.section-collection__image-photo
+      name: a.section-collection__item-trigger > .section-collection__name > span
+      bland_name: a.section-collection__item-trigger > .section-collection__brand > span
+      pagination: body > main > div.page-collection__content > div.section-collection > div.section-collection__footer > div.paginator > div.paginator__prevnext.paginator__prevnext--next > a.paginator__prevnext-trigger
