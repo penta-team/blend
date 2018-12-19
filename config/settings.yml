@@ -49,3 +49,13 @@ site:
       address: div#spaceWrapper > div.sectionContent > div.titleArea > p.address
       car_type: div#spaceWrapper > div.sectionContent > div.leftColumn > table:first-of-type > tbody > tr:last-child > td
       image: div#photoSlide > ul.slides > li:first-child > img
+  leeap:
+    site_name: leeap
+    root_url: https://leeap.jp/
+    crawling_url: https://leeap.jp/
+    category: clothes
+    selector:
+      wrapper: div#coordinateArea > div.slideOuter > div.inner > ul.coord-slide li
+      image: img
+      type: div.coord_caption_wrap > a > p
+
