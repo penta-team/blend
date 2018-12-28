@@ -2,7 +2,7 @@ class SharingsController < ApplicationController
   before_action :set_category
 
   def index
-    @sharings = Sharing.includes(:sharing_elements).where(site: @category.sites).limit(20)
+    @sharings = Sharing.includes(:sharing_elements).where(site: @category.sites).page(params[:page]).per(20)
   end
 
   private

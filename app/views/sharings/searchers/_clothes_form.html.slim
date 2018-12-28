@@ -1,0 +1,5 @@
+.p-sharing-form__element
+  .p-sharing-form__label
+    = label_tag :search_plan, "プラン"
+  .p-sharing-form__select
+    = select_tag :search_plan, options_from_collection_for_select(SharingElement.where(sharing_id: sharings.pluck(:id), classify: Classify.find_by(name_en: :plan)).uniq, :value, :value)

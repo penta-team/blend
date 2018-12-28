@@ -11,7 +11,7 @@ module Searcher
       set_condition conditions
     end
 
-    def set_condition(condtions)
+    def set_condition(conditions)
       raise NotImplementedError, "Must need to overriden `set_condition(Hash)` as instance method on #{self.class.name} class."
     end
 
@@ -20,31 +20,29 @@ module Searcher
     end
 
     def objects
-      @_records = @__records.dup
       query
-      @_records
     end
 
     def search_by_value(column_name, value)
       if value.present?
-        @_records = @_records.send :where, {column_name => value}
+        @records = @records.send :where, { column_name => value }
       end
     end
 
     def search_boolean(column_name, value)
       unless value.nil?
-        @_records = @_records.send :where, {column_name => value}
+        @records = @records.send :where, { column_name => value }
       end
     end
 
-    def search_by_datetime(column_name, start_at='', end_at='')
+    def search_by_datetime(column_name, start_at = '', end_at = '')
       if start_at.present? && end_at.present?
-        cond = {column_name => start_at.beginning_of_day..end_at.end_of_day}
-        @_records = @_records.send :where, cond
+        cond = { column_name => start_at.beginning_of_day..end_at.end_of_day }
+        @records = @records.send :where, cond
       elsif start_at.present?
-        @_records = @_records.send :where, "#{column_name} >= ?", start_at.beginning_of_day
+        @records = @records.send :where, "#{column_name} >= ?", start_at.beginning_of_day
       elsif end_at.present?
-        @_records = @_records.send :where, "#{column_name} <= ?", end_at.end_of_day
+        @records = @records.send :where, "#{column_name} <= ?", end_at.end_of_day
       end
     end
 
@@ -66,7 +64,7 @@ module Searcher
         end.join(' OR ')
 
         braces = columns.map{"%#{word}%"}
-        @_records = @_records.send :where, [column_sqls, braces].flatten
+        @records = @records.send :where, [column_sqls, braces].flatten
       end
     end
 
@@ -87,18 +85,18 @@ module Searcher
       direction = %w(asc desc).include?(direction) ? direction : "asc"
 
       if _model_name.column_names.include? column_name
-        @_records = @_records.order(column_name + " " + direction)
+        @records = @records.order(column_name + " " + direction)
       elsif _model_name.instance_methods(false).include? column_name.to_sym
         ids = if "asc" == direction
-                @_records.sort do |a, b|
+                @records.sort do |a, b|
                   a.send(column_name) <=> b.send(column_name)
                 end
               elsif "desc" == direction
-                @_records.sort do |a, b|
+                @records.sort do |a, b|
                   b.send(column_name) <=> a.send(column_name)
                 end
               end.map {|record| record.id}
-        @_records = @_records.order(["field(id, ?)", ids])
+        @records = @records.order(["field(id, ?)", ids])
       elsif column_name.include?(".") && block_given?
         model = column_name.split(".")[0]
         column = column_name.split(".")[1]

@@ -1,0 +1,33 @@
+.c-paginate {
+  &__list {
+    overflow: hidden;
+    margin: 0 0 20px;
+    padding: 0;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+  }
+  &__item {
+    float: left;
+    margin: 0 5px 5px 0;
+    span, a {
+      float: left;
+      padding: 5px 12px;
+      background: #e1ebfa;
+      border: 1px solid #339;
+      color: #000;
+    }
+    span {
+      background: #fff;
+    }
+    a {
+      &:hover {
+        background: #ccf;
+        border-color: #000;
+      }
+    }
+    span {
+      background: #fff;
+    }
+  }
+}

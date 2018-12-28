@@ -15,10 +15,10 @@
   .p-sharing
     .p-sharing__searcher
       .p-sharing-form
-        = form_tag sharings_searchers_path, method: :get do
-          = render "sharings/searchers/#{@category.name}_form"
+        /= form_tag sharings_searchers_path, method: :get do
+          = render "sharings/searchers/#{@category.name}_form", sharings: @sharings
     .p-sharing__background-image
       = image_tag "sharings/#{@category.name}.jpg", class: "_is_category__#{@category.name}"
     ul.p-sharing__list
       = render partial: 'sharings/sharing', collection: @sharings, as: :sharing, locals: { category: @category }
-
+    = paginate @sharings

@@ -50,4 +50,11 @@
       opacity: 0.5;
     }
   }
+  &__searcher {
+    position: absolute;
+    width: 80%;
+    left: 40%;
+    top: 50vh;
+    margin-left: -30%;
+  }
 }
