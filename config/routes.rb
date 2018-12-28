@@ -4,5 +4,8 @@ Rails.application.routes.draw do
   get 'top/index', to: 'top#index'
   get "top/index/:id" => "top#show"
 
-  resources :sharings, only: [:index]
+  resources :sharings, only: %i[index], param: :category_name
+  namespace :sharings do
+    resources :searchers, only: %i[index]
+  end
 end

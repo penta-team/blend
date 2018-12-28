@@ -1,0 +1,28 @@
+$color_link: #4cbee0;
+$main_color: #4cbee0;
+$sub_color: #91e3f2;
+$accent_color: #fc9792;
+$base_color: #fff;
+$font_color_1: #333;
+$font_color_2: #666;
+$font_color_3: #999;
+$gray_1: #e6e6e6;
+$gray_2: #eee;
+$gray_3: #f4f4f4;
+$gray_4: #f8f8f8;
+
+$fs__3: 2.0rem;
+$fs__2: 1.8rem;
+$fs__1: 1.6rem;
+$fs__0: 1.4rem;
+$fs__-1: 1.2rem;
+$fs__-2: 1.0rem;
+$fs__-3: 0.8rem;
+
+@mixin clearfix {
+  &:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}

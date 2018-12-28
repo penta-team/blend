@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.integer "site_id", null: false
     t.string "name", null: false
     t.integer "state", default: 0, null: false
+    t.text "link"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

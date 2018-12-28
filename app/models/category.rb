@@ -31,4 +31,6 @@ class Category < ApplicationRecord
     watch: 14,           # 腕時計
     furniture: 15        # 家具
   }
+
+  scope :with_site, -> { where id: joins(:sites) }
 end

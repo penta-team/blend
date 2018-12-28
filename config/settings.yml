@@ -1,6 +1,8 @@
 slack:
   webhook_url: https://hooks.slack.com/services/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
 
+site_name: ShareLove
+
 site:
   times_car_plus:
     site_name: タイムズ カー プラス

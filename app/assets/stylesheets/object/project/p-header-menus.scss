@@ -1,0 +1,19 @@
+.p-header-menus {
+  &__list {
+    display: flex;
+    justify-content: center;
+  }
+  &__item {
+    padding: 5px 10px;
+  }
+  &__link {
+    color: #ffffff;
+    &._is_site_logo {
+      font-family: 'Megrim', cursive;
+      font-weight: bold;
+    }
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}

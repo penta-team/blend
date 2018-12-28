@@ -3,7 +3,8 @@ class Sharing < ApplicationRecord
 
   has_many :sharing_elements, dependent: :destroy
 
-  validates :name, presence: true
+  validates :name,  presence: true
+  validates :state, presence: true
 
   enum state: {
     closed: 0,
@@ -19,5 +20,9 @@ class Sharing < ApplicationRecord
       sharing_element.value = value
       sharing_element.save!
     end
+  end
+
+  def has_image?
+    sharing_elements.joins(:classify).where(classifies: { name_en: :image }).present?
   end
 end

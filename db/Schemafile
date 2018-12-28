@@ -31,6 +31,7 @@ create_table :sharings, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET
   t.integer  :site_id, null: false
   t.string   :name,    null: false
   t.integer  :state,   null: false, default: 0
+  t.text     :link
 
   t.timestamps null: true
 end

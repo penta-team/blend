@@ -23,12 +23,13 @@ module Crawling
             sharing            = @site.sharings.find_or_initialize_by name: "Leeap-#{index}"
             sharing.state      = :opened
             sharing.updated_at = current_time
+            sharing.link       = @site.crawling_url
             sharing.save!
 
             sharing.create_sharing_element sex_classify, "男性"
             sharing.create_sharing_element count_classify, "月１回交換可能"
             sharing.create_sharing_element plan_classify, type
-            sharing.create_sharing_element image_classify, image
+            sharing.create_sharing_element image_classify, @site.crawling_url + image
             if type == "カジュアルプラン"
               sharing.create_sharing_element price_classify, "7800円/月"
             elsif type == "ジャケパンプラン"

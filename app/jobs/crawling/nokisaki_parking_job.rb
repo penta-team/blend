@@ -39,11 +39,12 @@ module Crawling
                 sharing            = @site.sharings.find_or_initialize_by name: station_name
                 sharing.state      = :opened
                 sharing.updated_at = current_time
+                sharing.link       = item_page.uri
                 sharing.save!
 
                 sharing.create_sharing_element price_classify, price
                 sharing.create_sharing_element address_classify, address
-                sharing.create_sharing_element image_classify, image
+                sharing.create_sharing_element image_classify, "https:" + image
 
                 car_types.each do |car_type|
                   sharing.create_sharing_element car_type_classify, car_type.text, true

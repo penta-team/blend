@@ -2,7 +2,7 @@ module Crawling
   class TimesCarPlusJob < BaseJob
     def perform
       settings     = Settings.site.times_car_plus
-      current_time = Time.zone.now
+      @current_time = Time.zone.now
 
       @site = find_or_create_site(
         settings.site_name,
@@ -22,7 +22,7 @@ module Crawling
       premium_class_price = page.at(settings.selector.price.premium_class).text
       create_sharing settings, page, settings.selector.car_list.premium_class, premium_class_price
 
-      @site.sharings.where.not(updated_at: current_time).update_all state: :closed
+      @site.sharings.where.not(updated_at: @current_time).update_all state: :closed
     end
 
     def create_sharing(settings, page, item_selector, price)
@@ -37,7 +37,8 @@ module Crawling
 
             sharing            = @site.sharings.find_or_initialize_by name: car_name
             sharing.state      = :opened
-            sharing.updated_at = current_time
+            sharing.updated_at = @current_time
+            sharing.link       = @site.crawling_url
             sharing.save!
 
             sharing.create_sharing_element image_classify, settings.crawling_url + image
@@ -48,7 +49,7 @@ module Crawling
             station_page  = get_page(settings.root_url + station_link_href, station_agent)
             while(station_page.at('#' + settings.selector.station.paginate_link).present?)
               station_page.search('#d_search table.table_tx tr[height][width]').each do |station_item|
-                station_name = station_item.at(settings.selector.station.name)
+                station_name    = station_item.at(settings.selector.station.name)
                 station_address = station_item.at(settings.selector.station.address)
 
                 sharing.create_sharing_element station_classify, station_address.text + ' ' + station_name.text, true

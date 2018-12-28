@@ -1,6 +1,6 @@
-.sharing-top-main class="backimage-#{ @category.name }"
+/.sharing-top-main class="backimage-#{ @category.name }"
 
-= form_tag sharings_path, method: :get, class: 'form' do
+/= form_tag sharings_path, method: :get, class: 'form' do
   .form-body
     table
       - @category.classifies.each do |classify|
@@ -11,11 +11,14 @@
             = text_field_tag "#{classify.name_en}_value"
   = submit_tag '検索'
 
-.main
-  .container
-    - @results.each do |result|
-      .search-category-item
-        .item-image-left
-          img src="検索された製品の画像パス" /
-        .item-text-right
-          = "検索結果のテキスト情報"
+.l-sharing
+  .p-sharing
+    .p-sharing__searcher
+      .p-sharing-form
+        = form_tag sharings_searchers_path, method: :get do
+          = render "sharings/searchers/#{@category.name}_form"
+    .p-sharing__background-image
+      = image_tag "sharings/#{@category.name}.jpg", class: "_is_category__#{@category.name}"
+    ul.p-sharing__list
+      = render partial: 'sharings/sharing', collection: @sharings, as: :sharing, locals: { category: @category }
+

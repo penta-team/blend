@@ -1,0 +1,23 @@
+.p-sharing-element {
+  font-size: 15px;
+  &__site {
+    font-size: 200%;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  &__price, &__count {
+    text-align: right;
+    float: right;
+    margin-right: 20px;
+    font-size: 130%;
+    @include clearfix;
+  }
+  &__plan {
+    font-size: 120%;
+    margin-bottom: 5px;
+  }
+  &__sex {
+    font-size: 120%;
+    margin-bottom: 10px;
+  }
+}

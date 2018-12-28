@@ -1,0 +1,25 @@
+doctype html
+html
+  head
+    title
+      = Settings.site_name
+    = csrf_meta_tags
+
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => 'reload'
+    = stylesheet_link_tag    'https://fonts.googleapis.com/css?family=Megrim'
+    = javascript_include_tag 'application', 'data-turbolinks-track' => 'reload'
+    = favicon_link_tag('favicon.ico')
+
+  body
+    .l-wrapper
+      header.l-header
+        .p-header-menus
+          ul.p-header-menus__list
+            li.p-header-menus__item
+              = link_to Settings.site_name, root_path, class: 'p-header-menus__link _is_site_logo'
+            - @categories.each do |category|
+              li.p-header-menus__item
+                = link_to category.name, sharings_path(category: category.name), class: 'p-header-menus__link'
+
+      .l-body
+        = yield

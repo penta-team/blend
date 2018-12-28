@@ -1,0 +1,9 @@
+li.p-sharing__item
+  .p-sharing__item__content
+    - if sharing.has_image?
+      .p-sharing__item__left
+        .p-sharing__item__image
+          = image_tag sharing.image
+    .p-sharing__item__right
+      = render "sharings/elements/#{category.name}", sharing: sharing
+  = link_to "詳細はこちらから", sharing.link, class: "p-sharing__link"
