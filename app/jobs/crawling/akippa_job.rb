@@ -32,7 +32,7 @@ module Crawling
               sharing            = @site.sharings.find_or_initialize_by name: station_name
               sharing.state      = :opened
               sharing.updated_at = current_time
-              sharing.link       = item_page.uri
+              sharing.link       = detail_page.uri
               sharing.save!
 
               sharing.create_sharing_element price_classify, price
